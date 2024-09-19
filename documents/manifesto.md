@@ -37,15 +37,8 @@ return -1
 - Pior caso: O(n) - quando o produto ou preço desejado está no final da lista ou não está presente.
 - Melhor caso: O(1) - quando o produto é o primeiro da lista.
 
-**Gráfico DOT:**
-```dot
-digraph LinearSearch {
-    rankdir=LR;
-    node [shape=rectangle];
-    start -> "Produto 1" -> "Produto 2" -> "Produto 3" -> "..." -> "Produto n" -> result;
-    result [label="Produto encontrado ou -1"];
-}
-```
+![graf_produto_01](https://github.com/user-attachments/assets/6267b139-3b92-4536-8f43-34b025431eab)
+
 
 #### 3.2. Busca Binária
 
@@ -72,19 +65,8 @@ return -1
 **Complexidade:**
 - O(log n) - em todos os casos devido à divisão sucessiva do array em metades.
 
-**Gráfico DOT:**
-```dot
-digraph BinarySearch {
-    rankdir=TB;
-    node [shape=rectangle];
-    start -> "Produto[mid]" -> compare -> branch;
-    branch -> "Produtos[0..mid-1]" [label="if menor"];
-    branch -> "Produtos[mid+1..n]" [label="if maior"];
-    "Produtos[0..mid-1]" -> result;
-    "Produtos[mid+1..n]" -> result;
-    result [label="Produto encontrado ou -1"];
-}
-```
+![graf_produto_02](https://github.com/user-attachments/assets/744f80ac-c953-474b-8c81-5bdc3cf25fa5)
+
 
 ### 4. Algoritmos Adicionais
 
@@ -116,19 +98,8 @@ return -1
 - Melhor caso: O(log log n) quando os preços estão distribuídos uniformemente.
 - Pior caso: O(n) quando a distribuição não é uniforme.
 
-**Gráfico DOT:**
-```dot
-digraph InterpolationSearch {
-    rankdir=TB;
-    node [shape=rectangle];
-    start -> "Interpolação" -> compare -> branch;
-    branch -> "Produtos[0..pos-1]" [label="if menor"];
-    branch -> "Produtos[pos+1..n]" [label="if maior"];
-    "Produtos[0..pos-1]" -> result;
-    "Produtos[pos+1..n]" -> result;
-    result [label="Produto encontrado ou -1"];
-}
-```
+![graf_produto_03](https://github.com/user-attachments/assets/98700c68-7cf0-45f2-bbe4-cd24814e279b)
+
 
 #### 4.2. Busca Exponencial
 
@@ -153,26 +124,19 @@ return BuscaBinaria(arr, valorProcurado, i/2, min(i, arr.Length-1))
 - O(log n) para a busca binária após localizar a faixa com crescimento exponencial.
 - Pior caso: O(log n).
 
-**Gráfico DOT:**
-```dot
-digraph ExponentialSearch {
-    rankdir=TB;
-    node [shape=rectangle];
-    start -> "Produto[1]" -> "Produto[2]" -> "Produto[4]" -> "Produto[8]" -> "Busca Binária" -> result;
-    result [label="Produto encontrado ou -1"];
-}
-```
+![graf_produto_04](https://github.com/user-attachments/assets/a4336af2-244d-4a08-af56-af42ba6f53df)
+
 
 ### 5. Aplicação ao Contexto Comercial
 
 Cada um dos algoritmos discutidos tem sua relevância específica no contexto de um sistema de e-commerce, conforme descrito abaixo:
 
-| **Algoritmo**           | **Cenário de Aplicação**                                       | **Vantagens**                                                                 | **Desvantagens**                                                      |
+| **Algoritmo**           | **Cenário de Aplicação**                                       | **Vantagens**                                                                 | **Desvantagens**                                                   |
 |-------------------------|---------------------------------------------------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| **Busca Linear**         | Pequenos catálogos de produtos ou quando os dados não são ordenados | Simples de implementar, ideal para pequenos conjuntos de dados                | Ineficiente em grandes volumes de dados                              |
-| **Busca Binária**        | Catálogos grandes ordenados por preço, ID ou data de venda     | Extremamente eficiente em dados ordenados                                     | Requer dados previamente ordenados                                   |
-| **Busca por Interpolação** | Busca de produtos com preços em uma distribuição quase uniforme | Melhor desempenho que a busca binária para distribuições lineares de dados    | Pode ser ineficaz com dados desigualmente distribuídos                |
-| **Busca Exponencial**    | Busca de produtos mais vendidos em grandes intervalos de tempo | Ideal para grandes volumes de dados; encontra a faixa adequada rapidamente    | Mais complexo que a busca binária e linear                           |
+| **Busca Linear**         | Pequenos catálogos de produtos ou quando os dados não são ordenados | Simples de implementar, ideal para pequenos conjuntos de dados                | Ineficiente em grandes volumes de dados                      |
+| **Busca Binária**        | Catálogos grandes ordenados por preço, ID ou data de venda     | Extremamente eficiente em dados ordenados                                     | Requer dados previamente ordenados                                |
+| **Busca por Interpolação** | Busca de produtos com preços em uma distribuição quase uniforme | Melhor desempenho que a busca binária para distribuições lineares de dados    | Pode ser ineficaz com dados desigualmente distribuídos         |
+| **Busca Exponencial**    | Busca de produtos mais vendidos em grandes intervalos de tempo | Ideal para grandes volumes de dados; encontra a faixa adequada rapidamente    | Mais complexo que a busca binária e linear                        |
 
 ### 6. Conclusão
 
