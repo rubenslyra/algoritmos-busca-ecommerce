@@ -128,6 +128,9 @@ algoritmos-busca-console/
 └── .gitignore          # Arquivo para ignorar certos arquivos no controle de versão
 ```
 
+![graphviz](https://github.com/user-attachments/assets/ab58e966-581e-49bb-8c95-a6a848589664)
+
+
 ---
 
 ## Contribuição
